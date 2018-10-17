@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>Warmtesysteem - Afbeeldingen</title>
+	<script type="text/javascript">
+		// first get the size from the window
+		// if that didn't work, get it from the body
+		var windowSize = {
+		  width: window.innerWidth || document.body.clientWidth,
+		  height: window.innerHeight || document.body.clientHeight
+		}
+		var maxWidth = windowSize.width / 2.5;
+		var images = ["http://i.imgur.com/1tGWlxH.png",
+		"http://i.imgur.com/FnOh7DK.png",
+		"http://i.imgur.com/nbn0Wu6.png",
+		"http://i.imgur.com/TZjWLTR.png",
+		"http://i.imgur.com/DrDIk9A.png",
+		"http://i.imgur.com/JUF3MaG.png",
+		"http://i.imgur.com/YB3x5KE.png",
+		"http://i.imgur.com/3P19gQr.jpg",
+		"http://i.imgur.com/q1V2cwg.jpg"
+		];
+		
+		function LoadContent(){
+			var content = '';
+			for(var i=0;i<images.length;i++){
+				content += GetImageHTML(images[i]);
+				if(i%2 == 0)
+					content += '<br /><br />';
+				else
+					content += ' ';
+			}
+			
+			document.getElementById("pageBody").innerHTML = content + '<br /><br />';
+		}
+		
+		function GetImageHTML(src){
+			return '<a href="' + src + '"><img src="' + src + '" width="' + maxWidth + '"/></a>';
+		}
+	</script>
+</head>
+<body onload="LoadContent()">
+<center>
+	<h1>Warmtesysteem</h1>
+	<div id="pageBody" />
+</center>
+</body>
+</html>
